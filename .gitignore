@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# config file (it holds API credentials)
+config.py
+
+# Comment-id data
+commentID.txt
+
 # C extensions
 *.so
 
