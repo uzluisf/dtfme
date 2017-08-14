@@ -42,5 +42,5 @@ def comment_definition(comment, word, definition,filename):
         comment_obj_w.write(comment.id + '\n')
         comment_obj_w.close()
     else:
-        print(message)
+        print("Comment ID: " + comment.id)
         print("Definition Given. No reply needed.\n")
