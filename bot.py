@@ -7,7 +7,7 @@
 
 import praw
 import requests
-from config import * 
+from config import *
 from getInfo import *
 
 app_id = ID
@@ -19,7 +19,7 @@ submit_to = 'roomofbugs'
 def bot_login():
     """Create an instance of Reddit class and return it."""
     print("Logging in...")
-    
+
     reddit = praw.Reddit(client_id = client_id,
                           client_secret = client_secret,
                           password = password,
@@ -28,7 +28,7 @@ def bot_login():
     print("Logged in!")
 
 def run_bot(reddit):
-    
+    """Log in, loop through comments and apply a condition.""" 
     subreddit = reddit.subreddit(submit_to)
     comments = subreddit.comments(limit=250)
     
@@ -36,12 +36,13 @@ def run_bot(reddit):
         text = comment.body
         
         if 'dtfm+' in text.lower():
-            #print("Word found!")
+            print("Word found!")
             whole_string = text.split('+')
             word = whole_string[1]
-            #word_id = word.lower()
+            word_id = word.lower()
             
-            word_id = input("Define: ")
+            # For (local) testing purposes
+            #word_id = input("Define: ")
             
             try:
                 url = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' + language + '/' + word_id
@@ -53,9 +54,20 @@ def run_bot(reddit):
                 print("Exception! No definition found!")
             else:
                 comment_definition(comment, word_id, definition, filename)
-                    
-            
 
-r = bot_login()
-run_bot(r)
-            
+        time.sleep(10)
+
+    print("Waiting 5 minutes.\n")
+    time.sleep(300)
+
+def main():
+    r = bot_login()
+    while True:
+        run_bot(r)
+
+if __name__=='__main__':
+    main()
+
+
+
+
