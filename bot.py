@@ -15,7 +15,7 @@ app_id = ID
 app_key = KEY
 language = LANG
 filename = 'commentID.txt'
-submit_to = 'roomofbugs'
+submit_to = 'roomofbugs+test'
 
 def bot_login():
     """Create an instance of Reddit class and return it."""
@@ -25,8 +25,8 @@ def bot_login():
                           client_secret = client_secret,
                           password = password,
                           user_agent = user_agent, username = username)
-    return reddit 
     print("Logged in!")
+    return reddit 
 
 def run_bot(reddit):
     """Log in, loop through comments and apply a condition.""" 
