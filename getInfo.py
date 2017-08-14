@@ -1,5 +1,4 @@
 import json
-import time
 
 
 def json_data(r):
@@ -27,14 +26,15 @@ def comment_definition(comment, word, definition,filename):
     """Verify comment ids, handle exceptions and post word's definition."""
     header = "> **" + word.title() + "**" + ":"
     body = "\n>\n" + definition + ".\n"
+    word_link = "\nMore about[{}](https://en.oxforddictionaries.com/definition/{}).".format(word, word})
     footer = "\n***\n[Info](https://www.reddit.com/r/roomofbugs)" 
-    message = header + body + footer
+    message = header + body + word_link + footer
     
     comment_obj_r = open(filename, 'r')
     
     if comment.id not in comment_obj_r.read().splitlines():
         print("Comment ID Not Found! Posting definition.")
-        #comment.reply(message)
+        comment.reply(message)
         
         comment_obj_r.close()
         
@@ -43,7 +43,4 @@ def comment_definition(comment, word, definition,filename):
         comment_obj_w.close()
     else:
         print(message)
-        #print("Definition Given. No reply needed./n")
-    
-    
-    #time.sleep(60)
+        print("Definition Given. No reply needed.\n")
