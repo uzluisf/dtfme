@@ -6,7 +6,9 @@ __pycache__/
 # config file (it holds API credentials)
 config.py
 
-# Comment-id data
+# Comment-id data. The program isn't able to create it by itself.
+# Create a txt file with same name and place in the home relative to
+# bot.py and getInfo.py
 commentID.txt
 
 # C extensions
