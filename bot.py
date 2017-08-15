@@ -25,7 +25,7 @@ def bot_login():
                           client_secret = client_secret,
                           password = password,
                           user_agent = user_agent, username = username)
-    print("Logged in!")
+
     return reddit 
 
 def run_bot(reddit):
@@ -37,7 +37,7 @@ def run_bot(reddit):
         text = comment.body
         
         if 'dtfm+' in text.lower():
-            print("Word found!")
+            print("\nWord found!")
             whole_string = text.split('+')
             word = whole_string[1]
             word_id = word.lower()
