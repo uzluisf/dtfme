@@ -11,6 +11,7 @@ import time
 from config import *
 from getInfo import *
 
+# Credentials, language and subreddits
 app_id = ID
 app_key = KEY
 language = LANG
@@ -38,11 +39,7 @@ def run_bot(reddit):
         
         if 'dtfm+' in text.lower():
             whole_string = text.split('+')
-            word = whole_string[1]
-            word_id = word.lower()
-            
-            # For (local) testing purposes
-            #word_id = input("Define: ")
+            word = whole_string[1].strip()
             
             try:
                 url = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' + language + '/' + word_id
@@ -57,8 +54,8 @@ def run_bot(reddit):
 
         time.sleep(10)
 
-    print("Waiting 5 minutes.\n")
-    time.sleep(300)
+    print("Waiting 2 minutes.\n")
+    time.sleep(120)
 
 def main():
     r = bot_login()
