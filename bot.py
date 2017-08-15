@@ -15,7 +15,7 @@ app_id = ID
 app_key = KEY
 language = LANG
 filename = 'commentID.txt'
-submit_to = 'roomofbugs+test'
+submit_to = 'roomofbugs'
 
 def bot_login():
     """Create an instance of Reddit class and return it."""
@@ -37,7 +37,6 @@ def run_bot(reddit):
         text = comment.body
         
         if 'dtfm+' in text.lower():
-            print("\nWord found!")
             whole_string = text.split('+')
             word = whole_string[1]
             word_id = word.lower()
@@ -68,7 +67,4 @@ def main():
 
 if __name__=='__main__':
     main()
-
-
-
 
