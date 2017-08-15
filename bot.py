@@ -39,7 +39,7 @@ def run_bot(reddit):
         
         if 'dtfm+' in text.lower():
             whole_string = text.split('+')
-            word = whole_string[1].strip()
+            word_id = whole_string[1].strip()
             
             try:
                 url = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' + language + '/' + word_id
