@@ -31,7 +31,7 @@ def bot_login():
 def run_bot(reddit):
     """Log in, loop through comments and apply a condition.""" 
     subreddit = reddit.subreddit(submit_to)
-    comments = subreddit.comments(limit=250)
+    comments = subreddit.stream.comments()
     
     for comment in comments:
         text = comment.body
