@@ -24,9 +24,9 @@ def get_definition(lista):
 
 def comment_definition(comment, word, definition,filename):
     """Verify comment ids, handle exceptions and post word's definition."""
-    header = "**" + word.title() + "**" + ":"
+    header = "**{}**:".format(word.title())
     header = header.replace(" ", "")
-    body = "\n\n>" + definition + ".\n"
+    body = "\n\n>{}.\n".format(definition.capitalize())
     word_link = "\nMore about [{}](https://en.oxforddictionaries.com/definition/{}).".format(word, word)
     footer = "\n***\n[Info](https://www.reddit.com/r/roomofbugs)" 
     message = header + body + word_link + footer
